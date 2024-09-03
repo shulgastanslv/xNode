@@ -1,8 +1,16 @@
 "use client";
 
 import Flow from "@/components/flow";
+import Navbar from "@/components/navbar";
 
 
 export default async function App() {
-  return <Flow />;
+  return (
+    <>
+      <Navbar/>
+      <div className="xNodeFlow">
+        <Flow />
+      </div>
+    </>
+  );
 }

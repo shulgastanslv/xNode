@@ -37,10 +37,10 @@ export default function App() {
       fitView
     >
      <Background
-        bgColor="#1e1e1e"  // Цвет фона
-        gap={30}         // Интервал между линиями сетки
-        size={1}         // Размер линий сетки
-        variant={BackgroundVariant.Dots}
+        bgColor="#ffffff"
+        gap={0}
+        size={0}
+        variant={BackgroundVariant.Cross}
       />
       <Controls />
     </ReactFlow>

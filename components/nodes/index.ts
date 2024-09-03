@@ -1,16 +1,61 @@
 import type { BuiltInNode, Node, NodeTypes } from "@xyflow/react";
-import PositionLoggerNode, { ActionNode, type PositionLoggerNode as PositionLoggerNodeType} from "./PositionLoggerNodeType";
-
+import ActionNode, {type ActionNode as ActionNodeType} from "./action_node";
+import RootNode, { type RootNode as RootNodeType} from "./root_node";
+import EndNode, { type EndNode as EndNodeType} from "./end_node";
+import ConditionNode, {type ConditionNode as ConditionNodeType} from "./condition_node";
 
 export const initialNodes = [
-  { id: '1', type: 'actionNode', position: { x: 250, y: 0 }, data: { label: 'Action 1' } },
+  {
+    id: '1',
+    type: 'actionNode',
+    position: { x: 100, y: 100 },
+    data: {
+      actionName: 'First Action',
+      actionType: 'start',
+    },
+  },
+  {
+    id: '2',
+    type: 'actionNode',
+    position: { x: 100, y: 400 },
+    data: {
+      actionName: 'Second Action',
+      actionType: 'start',
+    },
+  },
+  {
+    id: '3',
+    type: 'rootNode',
+    position: { x: 100, y: 50 },
+    data: {
+      label: 'Root',
+    }
+  },
+  {
+    id: '4',
+    type: 'endNode',
+    position: { x: 500, y: 350 },
+    data: {
+      label: 'End',
+    }
+  },
+  {
+    id: '5',
+    type: 'conditionNode', // Указание типа ConditionNode
+    position: { x: 400, y: 250 },
+    data: {
+      condition: 'condition1',
+    },
+  },
 ] satisfies Node[];
 
 export const nodeTypes = {
-  actionNode: ActionNode,
-  "position-logger": PositionLoggerNode,
+  "actionNode": ActionNode,
+  "rootNode" : RootNode,
+  "endNode" : EndNode,
+  "conditionNode" : ConditionNode,
   // Add any of your custom nodes here!
 } satisfies NodeTypes;
 
 // Append the types of you custom edges to the BuiltInNode type
-export type CustomNodeType = BuiltInNode | PositionLoggerNodeType;
+export type CustomNodeType = BuiltInNode | ActionNodeType | RootNodeType | EndNodeType | ConditionNodeType;
