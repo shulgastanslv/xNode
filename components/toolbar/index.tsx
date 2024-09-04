@@ -16,20 +16,20 @@ import {
   HelpCircle
 } from "lucide-react";
 
-import React from "react";
+import {ReactNode, memo} from "react";
 import { debounce } from "lodash";
 
 type Tool = 'select' | 'action' | 'condition';
 
 interface ToolButtonProps {
   tool: Tool;
-  icon: React.ReactNode;
+  icon: ReactNode;
   label: string;
   selectedTool: Tool;
   onClick: (tool: Tool) => void;
 }
 
-const ToolButton = React.memo(({ tool, icon, label, selectedTool, onClick }: ToolButtonProps) => (
+const ToolButton = memo(({ tool, icon, label, selectedTool, onClick }: ToolButtonProps) => (
   <Button 
     variant="ghost"
     size="icon" 
@@ -44,6 +44,8 @@ const ToolButton = React.memo(({ tool, icon, label, selectedTool, onClick }: Too
     <span className="sr-only">{label}</span>
   </Button>
 ));
+
+ToolButton.displayName = 'ToolButton';
 
 export default function Component() {
   const [selectedTool, setSelectedTool] = useState<Tool>('select');

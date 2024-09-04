@@ -4,7 +4,7 @@ import Flow from "@/components/flow";
 import Navbar from "@/components/navbar";
 
 
-export default async function App() {
+export default function App() {
   return (
     <>
       <Navbar/>
