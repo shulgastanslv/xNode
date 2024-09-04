@@ -15,11 +15,12 @@ import "@xyflow/react/dist/style.css";
 
 import { initialNodes, nodeTypes, type CustomNodeType } from "./nodes";
 import { initialEdges, edgeTypes, type CustomEdgeType } from "./edges";
+import { useToolBarStore } from "@/store/use_toolbar";
 
 export default function App() {
-  const [nodes, , onNodesChange] = useNodesState<CustomNodeType>(initialNodes);
-  const [edges, setEdges, onEdgesChange] =
-    useEdgesState<CustomEdgeType>(initialEdges);
+  const [nodes, setNodes, onNodesChange] = useNodesState<CustomNodeType>(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState<CustomEdgeType>([]);
+  const { selectedTool } = useToolBarStore();
   const onConnect: OnConnect = useCallback(
     (connection) => setEdges((edges) => addEdge(connection, edges)),
     [setEdges]
@@ -34,9 +35,13 @@ export default function App() {
       edgeTypes={edgeTypes}
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
+      nodesDraggable={true}
+      elementsSelectable
+      deleteKeyCode={"Delete"}
+      panOnDrag={selectedTool === 'hand'}
       fitView
     >
-     <Background
+      <Background
         bgColor="#ffffff"
         gap={0}
         size={0}
