@@ -59,7 +59,7 @@ export default function Component() {
 
   return (
     <div className="flex justify-center w-full p-2 bg-background">
-      <div className="flex items-center space-x-1 rounded-lg bg-muted p-1 shadow-md">
+      <div className="flex items-center space-x-1 rounded-lg bg-white p-1 shadow-md">
         <ToolButton tool='select' icon={<MousePointer2 className="h-4 w-4" />} label='Select' selectedTool={selectedTool} onClick={handleToolClick} />
         <Separator orientation="vertical" className="mx-1 h-6" />
         <ToolButton tool='action' icon={<ArrowRight className="h-4 w-4" />} label='Action' selectedTool={selectedTool} onClick={handleToolClick} />

@@ -23,13 +23,12 @@ const MenuButton = ({
       </Button>
     </DropdownMenuTrigger>
     {items && (
-      <DropdownMenuContent className="min-w-[180px] ml-5 mt-1">
+      <DropdownMenuContent className="min-w-[250px] ml-5 mt-1">
         {items.map((item, index) => (
           <React.Fragment key={item}>
             <DropdownMenuItem className="text-xs py-1.5">
               {item}
             </DropdownMenuItem>
-            {index < items.length - 1 && <DropdownMenuSeparator />}
           </React.Fragment>
         ))}
       </DropdownMenuContent>
@@ -43,6 +42,8 @@ export default function MenuBar() {
       <MenuButton
         icon={<Menu className="h-4 w-4" />}
         items={[
+          "Open",
+          "Save",
           "Reset",
         ]}
       />

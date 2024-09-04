@@ -39,14 +39,6 @@ export const initialNodes = [
       label: 'End',
     }
   },
-  {
-    id: '5',
-    type: 'conditionNode', // Указание типа ConditionNode
-    position: { x: 400, y: 250 },
-    data: {
-      condition: 'condition1',
-    },
-  },
 ] satisfies Node[];
 
 export const nodeTypes = {
